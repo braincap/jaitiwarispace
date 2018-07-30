@@ -41,6 +41,47 @@ const Hero = styled.div`
   }
 `;
 
+const PulsatingAnchor = styled.a`
+  &:link,
+  &:visited {
+    margin-right: 2rem;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    color: ${props => props.theme.bg};
+    background-color: ${props => props.theme.primary};
+    border-radius: 1000px;
+    position: relative;
+    transition: all 0.2s;
+    box-shadow: rgba(0, 5, 15, 0.11) 0px 4px 6px,
+      rgba(0, 0, 0, 0.08) 0px 1px 3px;
+  }
+  &:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.1rem 0.2rem ${props => props.theme.light};
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: ${props => props.theme.primary};
+    border-radius: 1000px;
+    z-index: -50;
+    transition: all 0.4s;
+  }
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.05rem 0.2rem ${props => props.theme.light};
+  }
+`;
+
 const IndexPage = props => {
   const postEdges = props.data.allMarkdownRemark.edges;
   return (
@@ -49,16 +90,14 @@ const IndexPage = props => {
         <Hero>
           <h1>Hi.</h1>
           <p>
-            I&apos;m John Doe, a Senior UX Developer with five years of industry experience, specializing in developing
-            React apps with the best UX users can get.
+            I&apos;m Jai Tiwari, a Full Stack Developer who loves to find and
+            solve small and big problems with my coding skills.
           </p>
-          <Link to="/contact">
-            <Button big>
-              <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
-              </svg>
-              Contact
-            </Button>
+          <PulsatingAnchor href="mailto:contactjaitiwari@gmail.com">
+            Contact
+          </PulsatingAnchor>
+          <Link to="/works">
+            <PulsatingAnchor href="#">Works</PulsatingAnchor>
           </Link>
         </Hero>
         <Content>

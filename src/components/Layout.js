@@ -24,9 +24,6 @@ injectGlobal`
     text-decoration: none;
     transition: all ${theme.transitionTime};
   }
-  a:hover {
-    color: ${theme.primary};
-  }
   h1, h2, h3, h4 {
     color: ${theme.dark};
   }
@@ -83,8 +80,8 @@ const Layout = props => {
             <SEO />
             {children}
             <Footer>
-              &copy; 2018 by John Doe. All rights reserved. <br />
-              <a href="https://github.com/LeKoArts/gatsby-starter-minimal-blog">GitHub Repository</a> <br />
+              &copy; 2018 by Jai Tiwari. All rights reserved. <br />
+              <a href="https://github.com/braincap">GitHub Repository</a> <br />
               <span>Last build: {data.site.buildTime}</span>
             </Footer>;
           </React.Fragment>
